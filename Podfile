@@ -10,4 +10,8 @@ target 'Mother' do
   pod 'GooglePlacePicker'
   pod 'GoogleMaps'
 
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Functions'
+
 end

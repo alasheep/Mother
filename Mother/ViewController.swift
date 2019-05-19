@@ -9,6 +9,7 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
+import Firebase
 
 struct MyPlace {
     var name: String
@@ -17,6 +18,11 @@ struct MyPlace {
 }
 
 class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate, GMSAutocompleteViewControllerDelegate, UITextFieldDelegate {
+    
+    lazy var functions = Functions.functions()
+    
+    var latitude:Double = 0
+    var longtitude:Double = 0
     
     let currentLocationMarker = GMSMarker()
     var locationManager = CLLocationManager()
@@ -109,7 +115,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         
         self.myMapView.animate(to: camera)
         
-        showYeojinMarkers(lat: lat, long: long)
+//        showYeojinMarkers(lat: lat, long: long)
     }
     
     // MARK: GOOGLE MAP DELEGATE
@@ -163,17 +169,127 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         
 //        37.247140, 127.066308
 //        37.249756, 127.066341
-        marker.position = CLLocationCoordinate2D(latitude: 37.249756, longitude: 127.066341)
+        marker.position = CLLocationCoordinate2D(latitude: lat, longitude: long)
             marker.map = self.myMapView
 //        }
     }
     
     @objc func btnMyLocationAction() {
-        let location: CLLocation? = myMapView.myLocation
-        if location != nil {
-            myMapView.animate(toLocation: (location?.coordinate)!)
+//        let location: CLLocation? = myMapView.myLocation
+//        if location != nil {
+//            myMapView.animate(toLocation: (location?.coordinate)!)
+//        }
+        
+//        let cur_time:String  = String(NSDate().timeIntervalSince1970 * 1000)
+//        print("cur_time :"+cur_time)
+//        let data = ["time": cur_time/*,
+//                    "secondNumber": Int(number2Field.text!)*/]
+//
+//
+//        functions.httpsCallable("reqInfo").call(data) { (result, error) in
+//            // [START function_error]
+//            if let error = error as NSError? {
+//                if error.domain == FunctionsErrorDomain {
+//                    let code = FunctionsErrorCode(rawValue: error.code)
+//                    let message = error.localizedDescription
+//                    let details = error.userInfo[FunctionsErrorDetailsKey]
+//                }
+//                // [START_EXCLUDE]
+//                print(error.localizedDescription)
+//                return
+//                // [END_EXCLUDE]
+//            }
+//            // [END function_error]
+//            if let operationResult = (result?.data as? [String: Any])?["operationResult"] as? Int {
+////                self.resultField.text = "\(operationResult)"
+//                print("error")
+//            }
+//        }
+        
+        let ref = Firestore.firestore().collection("cur_location").document("lLxQJ1cOQv5nU3HNNSSm")
+        ref.getDocument { (snapshot, err) in
+            if let data = snapshot?.data() {
+                print(data["cur_latitude"])
+                print(data["cur_longtitude"])
+                
+                //37.251487, 127.071104
+                var lat:Double = 37.251487
+                var long:Double = 127.071104
+                self.showYeojinMarkers(lat:lat, long:long)
+            } else {
+                print("Couldn't find the document")
+            }
         }
     }
+    
+    @objc func btnReqCurLocationAction() {
+        
+//        let ref = Firestore.firestore().collection("cur_location").document("lLxQJ1cOQv5nU3HNNSSm")
+//        ref.getDocument { (snapshot, err) in
+//            if let data = snapshot?.data() {
+//                print(data["cur_latitude"])
+//                print(data["cur_longtitude"])
+//
+//            } else {
+//                print("Couldn't find the document")
+//            }
+//        }
+        
+        functions.httpsCallable("sendFCM").call() { (result, error) in
+            // [START function_error]
+            if let error = error as NSError? {
+                if error.domain == FunctionsErrorDomain {
+                    let code = FunctionsErrorCode(rawValue: error.code)
+                    let message = error.localizedDescription
+                    let details = error.userInfo[FunctionsErrorDetailsKey]
+                }
+                // [START_EXCLUDE]
+                print(error.localizedDescription)
+                return
+                // [END_EXCLUDE]
+            }
+            // [END function_error]
+            if let operationResult = (result?.data as? [String: Any])?["operationResult"] as? Int {
+//                self.resultField.text = "\(operationResult)"
+                print("error")
+            }
+        }
+
+    }
+
+    
+    @objc func btnShowCurLocationAction() {
+
+//        //37.251487, 127.071104
+//        latitude = 37.251487
+//        longtitude = 127.071104
+        
+        let ref = Firestore.firestore().collection("cur_location").document("lLxQJ1cOQv5nU3HNNSSm")
+        ref.getDocument { (snapshot, err) in
+            if let data = snapshot?.data() {
+//                print(data["cur_latitude"])
+//                print(data["cur_longtitude"])
+                
+                //37.251487, 127.071104
+                let la:Double = data["cur_latitude"] as! Double
+                let lo:Double = data["cur_latitude"] as! Double
+                
+                print("la :\(la), lo:\(lo)");
+                
+                self.latitude = la
+                self.longtitude = lo
+                
+                self.showYeojinMarkers(lat:self.latitude, long:self.longtitude)
+
+            } else {
+                print("Couldn't find the document")
+            }
+        }
+        
+        
+
+    }
+
     
     @objc func restaurantTapped(tag: Int) {
         let v=DetailsVC()
@@ -219,6 +335,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         btnReqCurLocation.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 130).isActive=true
         btnReqCurLocation.widthAnchor.constraint(equalToConstant: 50).isActive=true
         btnReqCurLocation.heightAnchor.constraint(equalTo: btnMyLocation.widthAnchor).isActive=true
+        
+        
+        // 여진 현재 위치 표시 버튼
+        self.view.addSubview(btnShowCurLocation)
+        btnShowCurLocation.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive=true
+        btnShowCurLocation.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 200).isActive=true
+        btnShowCurLocation.widthAnchor.constraint(equalToConstant: 50).isActive=true
+        btnShowCurLocation.heightAnchor.constraint(equalTo: btnMyLocation.widthAnchor).isActive=true
     }
     
     let myMapView: GMSMapView = {
@@ -258,7 +382,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         btn.clipsToBounds=true
         btn.tintColor = UIColor.gray
         btn.imageView?.tintColor=UIColor.gray
-        btn.addTarget(self, action: #selector(btnMyLocationAction), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(btnReqCurLocationAction), for: .touchUpInside)
+        btn.translatesAutoresizingMaskIntoConstraints=false
+        return btn
+    }()
+    
+    let btnShowCurLocation: UIButton = {
+        let btn=UIButton()
+        btn.backgroundColor = UIColor.white
+        btn.setImage(#imageLiteral(resourceName: "restaurant3"), for: .normal)
+        //        btn.layer.cornerRadius = 25
+        btn.clipsToBounds=true
+        btn.tintColor = UIColor.gray
+        btn.imageView?.tintColor=UIColor.gray
+        btn.addTarget(self, action: #selector(btnShowCurLocationAction), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints=false
         return btn
     }()
