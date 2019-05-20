@@ -341,16 +341,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         // 여진 현재 위치 요청 버튼
         self.view.addSubview(btnReqCurLocation)
         btnReqCurLocation.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive=true
-        btnReqCurLocation.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 130).isActive=true
-        btnReqCurLocation.widthAnchor.constraint(equalToConstant: 50).isActive=true
+        btnReqCurLocation.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 100).isActive=true
+        btnReqCurLocation.widthAnchor.constraint(equalToConstant: 110).isActive=true
         btnReqCurLocation.heightAnchor.constraint(equalTo: btnMyLocation.widthAnchor).isActive=true
         
         
         // 여진 현재 위치 표시 버튼
         self.view.addSubview(btnShowCurLocation)
         btnShowCurLocation.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive=true
-        btnShowCurLocation.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 200).isActive=true
-        btnShowCurLocation.widthAnchor.constraint(equalToConstant: 50).isActive=true
+        btnShowCurLocation.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 220).isActive=true
+        btnShowCurLocation.widthAnchor.constraint(equalToConstant: 110).isActive=true
         btnShowCurLocation.heightAnchor.constraint(equalTo: btnMyLocation.widthAnchor).isActive=true
     }
     
@@ -384,26 +384,41 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     }()
     
     let btnReqCurLocation: UIButton = {
-        let btn=UIButton()
-        btn.backgroundColor = UIColor.white
-        btn.setImage(#imageLiteral(resourceName: "restaurant3"), for: .normal)
-//        btn.layer.cornerRadius = 25
-        btn.clipsToBounds=true
-        btn.tintColor = UIColor.gray
-        btn.imageView?.tintColor=UIColor.gray
+//        let btn=UIButton()
+////        btn.backgroundColor = UIColor.white
+////        btn.setImage(#imageLiteral(resourceName: "restaurant3"), for: .normal)
+////        btn.layer.cornerRadius = 25
+//        btn.clipsToBounds=true
+//        btn.tintColor = UIColor.gray
+////        btn.imageView?.tintColor=UIColor.gray
+//        btn.setTitle("현재위치 요청", for: .normal)
+//        btn.addTarget(self, action: #selector(btnReqCurLocationAction), for: .touchUpInside)
+//        btn.translatesAutoresizingMaskIntoConstraints=false
+//        return btn
+        
+        let btn:UIButton = UIButton(frame: CGRect(x: 100, y: 400, width: 200, height: 50))
+        btn.backgroundColor = .black
+        btn.setTitle("현재위치 요청", for: .normal)
         btn.addTarget(self, action: #selector(btnReqCurLocationAction), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints=false
         return btn
     }()
     
     let btnShowCurLocation: UIButton = {
-        let btn=UIButton()
-        btn.backgroundColor = UIColor.white
-        btn.setImage(#imageLiteral(resourceName: "restaurant3"), for: .normal)
-        //        btn.layer.cornerRadius = 25
-        btn.clipsToBounds=true
-        btn.tintColor = UIColor.gray
-        btn.imageView?.tintColor=UIColor.gray
+//        let btn=UIButton()
+//        btn.backgroundColor = UIColor.white
+//        btn.setImage(#imageLiteral(resourceName: "restaurant3"), for: .normal)
+//        //        btn.layer.cornerRadius = 25
+//        btn.clipsToBounds=true
+//        btn.tintColor = UIColor.gray
+//        btn.imageView?.tintColor=UIColor.gray
+//        btn.addTarget(self, action: #selector(btnShowCurLocationAction), for: .touchUpInside)
+//        btn.translatesAutoresizingMaskIntoConstraints=false
+//        return btn
+        
+        let btn:UIButton = UIButton(frame: CGRect(x: 100, y: 400, width: 200, height: 50))
+        btn.backgroundColor = .black
+        btn.setTitle("현재위치 표시", for: .normal)
         btn.addTarget(self, action: #selector(btnShowCurLocationAction), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints=false
         return btn

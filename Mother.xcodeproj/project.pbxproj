@@ -77,11 +77,11 @@
 				18AD85A32291116F0063F38B /* RestaurantPreviewView.swift */,
 				18AD85A5229112710063F38B /* DetailsVC.swift */,
 				18BEC3A42292D5E20021CE68 /* String.swift */,
+				18BEC3A82292DBB50021CE68 /* ToastView.swift */,
 				18AD859622910E680063F38B /* Assets.xcassets */,
 				18AD859822910E680063F38B /* LaunchScreen.storyboard */,
 				18BEC3A1229140480021CE68 /* GoogleService-Info.plist */,
 				18AD859B22910E680063F38B /* Info.plist */,
-				18BEC3A82292DBB50021CE68 /* ToastView.swift */,
 			);
 			path = Mother;
 			sourceTree = "<group>";
