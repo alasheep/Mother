@@ -31,7 +31,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     let customMarkerWidth: Int = 50
     let customMarkerHeight: Int = 70
     
-    let previewDemoData = [(title: "The Polar Junction", img: #imageLiteral(resourceName: "restaurant1"), price: 10), (title: "The Nifty Lounge", img: #imageLiteral(resourceName: "restaurant2"), price: 8), (title: "The Lunar Petal", img: #imageLiteral(resourceName: "restaurant3"), price: 12)]
+    let previewDemoData = [(title: "The Polar Junction", img: #imageLiteral(resourceName: "restaurant1"), price: 10), (title: "The Nifty Lounge", img: #imageLiteral(resourceName: "restaurant2"), price: 8), (title: "The Lunar Petal", img: #imageLiteral(resourceName: "restaurant3"), price: 12), (title: "Yeojin", img: #imageLiteral(resourceName: "yeojin"), price: 12)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -154,7 +154,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
 //        for i in 0..<3 {
 //            let randNum=Double(arc4random_uniform(30))/10000
             let marker=GMSMarker()
-            let customMarker = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: customMarkerWidth, height: customMarkerHeight), image: previewDemoData[0].img, borderColor: UIColor.darkGray, tag: 0)
+            let customMarker = CustomMarkerView(frame: CGRect(x: 0, y: 0, width: customMarkerWidth, height: customMarkerHeight), image: previewDemoData[3].img, borderColor: UIColor.darkGray, tag: 3)
             marker.iconView=customMarker
 //            let randInt = arc4random_uniform(4)
 //            if randInt == 0 {
@@ -245,6 +245,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
                 }
                 // [START_EXCLUDE]
                 print(error.localizedDescription)
+                
+                ToastView.init(message: "여진앱으로 메시지 전송완료").show()
                 return
                 // [END_EXCLUDE]
             }
@@ -271,14 +273,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
 //                print(data["cur_longtitude"])
                 
                 //37.251487, 127.071104
-                let la:Double = data["cur_latitude"] as! Double
-                let lo:Double = data["cur_latitude"] as! Double
+                let la:String = data["cur_latitude"] as! String
+                let lo:String = data["cur_longtitude"] as! String
+                
+//                let la = String(data["cur_latitude"]).toDouble
+//                let lo = String(data["cur_longtitude"]).toDouble
                 
                 print("la :\(la), lo:\(lo)");
                 
-                self.latitude = la
-                self.longtitude = lo
+                self.latitude = la.toDouble()!
+                self.longtitude = lo.toDouble()!
                 
+//                self.showYeojinMarkers(lat:self.latitude, long:self.longtitude)
+                
+                let camera = GMSCameraPosition.camera(withLatitude: self.latitude, longitude: self.longtitude, zoom: 17.0)
+                self.myMapView.animate(to: camera)
                 self.showYeojinMarkers(lat:self.latitude, long:self.longtitude)
 
             } else {

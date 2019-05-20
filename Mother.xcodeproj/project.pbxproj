@@ -16,6 +16,8 @@
 		18AD85A42291116F0063F38B /* RestaurantPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD85A32291116F0063F38B /* RestaurantPreviewView.swift */; };
 		18AD85A6229112710063F38B /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD85A5229112710063F38B /* DetailsVC.swift */; };
 		18BEC3A2229140490021CE68 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18BEC3A1229140480021CE68 /* GoogleService-Info.plist */; };
+		18BEC3A52292D5E20021CE68 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BEC3A42292D5E20021CE68 /* String.swift */; };
+		18BEC3A92292DBB50021CE68 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BEC3A82292DBB50021CE68 /* ToastView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		18AD85A32291116F0063F38B /* RestaurantPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantPreviewView.swift; sourceTree = "<group>"; };
 		18AD85A5229112710063F38B /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		18BEC3A1229140480021CE68 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		18BEC3A42292D5E20021CE68 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		18BEC3A82292DBB50021CE68 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		895A665AF1295740A870D3BC /* Pods_Mother.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mother.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		961FA3EC78B99D2A6E9557A9 /* Pods-Mother.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mother.release.xcconfig"; path = "Target Support Files/Pods-Mother/Pods-Mother.release.xcconfig"; sourceTree = "<group>"; };
 		BEF6DD71B02C7965A6B2AF75 /* Pods-Mother.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mother.debug.xcconfig"; path = "Target Support Files/Pods-Mother/Pods-Mother.debug.xcconfig"; sourceTree = "<group>"; };
@@ -72,10 +76,12 @@
 				18AD85A1229110E90063F38B /* CustomerMarkerView.swift */,
 				18AD85A32291116F0063F38B /* RestaurantPreviewView.swift */,
 				18AD85A5229112710063F38B /* DetailsVC.swift */,
+				18BEC3A42292D5E20021CE68 /* String.swift */,
 				18AD859622910E680063F38B /* Assets.xcassets */,
 				18AD859822910E680063F38B /* LaunchScreen.storyboard */,
 				18BEC3A1229140480021CE68 /* GoogleService-Info.plist */,
 				18AD859B22910E680063F38B /* Info.plist */,
+				18BEC3A82292DBB50021CE68 /* ToastView.swift */,
 			);
 			path = Mother;
 			sourceTree = "<group>";
@@ -258,6 +264,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18BEC3A52292D5E20021CE68 /* String.swift in Sources */,
+				18BEC3A92292DBB50021CE68 /* ToastView.swift in Sources */,
 				18AD85A42291116F0063F38B /* RestaurantPreviewView.swift in Sources */,
 				18AD859222910E630063F38B /* ViewController.swift in Sources */,
 				18AD859022910E630063F38B /* AppDelegate.swift in Sources */,
