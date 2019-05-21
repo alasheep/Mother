@@ -17,7 +17,7 @@ struct MyPlace {
     var long: Double
 }
 
-class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate, GMSAutocompleteViewControllerDelegate, UITextFieldDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate, GMSAutocompleteViewControllerDelegate, UITextFieldDelegate {
     
     lazy var functions = Functions.functions()
     
@@ -35,7 +35,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Home"
+        self.title = "여진이 어딨어?"
         self.view.backgroundColor = UIColor.white
         myMapView.delegate=self
         
@@ -337,14 +337,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         
         // 현재 위치 버튼
         self.view.addSubview(btnMyLocation)
-        btnMyLocation.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive=true
+        btnMyLocation.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60).isActive=true
         btnMyLocation.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive=true
         btnMyLocation.widthAnchor.constraint(equalToConstant: 50).isActive=true
         btnMyLocation.heightAnchor.constraint(equalTo: btnMyLocation.widthAnchor).isActive=true
         
         // 여진 현재 위치 요청 버튼
         self.view.addSubview(btnReqCurLocation)
-        btnReqCurLocation.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive=true
+        btnReqCurLocation.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60).isActive=true
         btnReqCurLocation.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 100).isActive=true
         btnReqCurLocation.widthAnchor.constraint(equalToConstant: 110).isActive=true
         btnReqCurLocation.heightAnchor.constraint(equalTo: btnMyLocation.widthAnchor).isActive=true
@@ -352,7 +352,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         
         // 여진 현재 위치 표시 버튼
         self.view.addSubview(btnShowCurLocation)
-        btnShowCurLocation.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive=true
+        btnShowCurLocation.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60).isActive=true
         btnShowCurLocation.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 220).isActive=true
         btnShowCurLocation.widthAnchor.constraint(equalToConstant: 110).isActive=true
         btnShowCurLocation.heightAnchor.constraint(equalTo: btnMyLocation.widthAnchor).isActive=true

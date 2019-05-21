@@ -99,7 +99,7 @@ open class ToastView {
         let screenHeight = UIScreen.main.bounds.height - keyboardHeight
         
         var posY:CGFloat
-        posY = screenHeight - 100 - (toastView.frame.size.height/2)
+        posY = screenHeight - 120 - (toastView.frame.size.height/2)
         
         return CGPoint(x:posX, y:posY)
     }

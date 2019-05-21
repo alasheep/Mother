@@ -31,10 +31,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let window = self.window {
             window.backgroundColor = UIColor.white
             
-            let nav = UINavigationController()
-            let mainView = ViewController()
-            nav.viewControllers = [mainView]
-            window.rootViewController = nav
+//            let nav = UINavigationController()
+//            let mainView = ViewController()
+//            nav.viewControllers = [mainView]
+//            window.rootViewController = nav
+//            window.makeKeyAndVisible()
+            
+//            window = UIWindow(frame: UIScreen.main.bounds)
+            window.rootViewController = MyTabBarController()
             window.makeKeyAndVisible()
         }
         

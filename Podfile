@@ -14,4 +14,6 @@ target 'Mother' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Functions'
 
+  pod 'IBAnimatable'  
+
 end

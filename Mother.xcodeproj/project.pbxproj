@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		17283760BB9DFB5FFF256F24 /* Pods_Mother.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895A665AF1295740A870D3BC /* Pods_Mother.framework */; };
+		1808AD822294533900B79267 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808AD812294533900B79267 /* MyTabBarController.swift */; };
+		1808AD842294549800B79267 /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808AD832294549800B79267 /* MyNavigationController.swift */; };
+		1808AD892294B95E00B79267 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808AD882294B95E00B79267 /* WeatherViewController.swift */; };
 		18AD859022910E630063F38B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD858F22910E630063F38B /* AppDelegate.swift */; };
-		18AD859222910E630063F38B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD859122910E630063F38B /* ViewController.swift */; };
+		18AD859222910E630063F38B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD859122910E630063F38B /* MapViewController.swift */; };
 		18AD859722910E680063F38B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18AD859622910E680063F38B /* Assets.xcassets */; };
 		18AD859A22910E680063F38B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18AD859822910E680063F38B /* LaunchScreen.storyboard */; };
 		18AD85A2229110E90063F38B /* CustomerMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD85A1229110E90063F38B /* CustomerMarkerView.swift */; };
@@ -21,9 +24,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1808AD812294533900B79267 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
+		1808AD832294549800B79267 /* MyNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNavigationController.swift; sourceTree = "<group>"; };
+		1808AD882294B95E00B79267 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		18AD858C22910E630063F38B /* Mother.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mother.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18AD858F22910E630063F38B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		18AD859122910E630063F38B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		18AD859122910E630063F38B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		18AD859622910E680063F38B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18AD859922910E680063F38B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18AD859B22910E680063F38B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,6 +56,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1808AD7F2294529900B79267 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		1808AD80229452D400B79267 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				18BEC3A82292DBB50021CE68 /* ToastView.swift */,
+				18BEC3A42292D5E20021CE68 /* String.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		1808AD85229459CD00B79267 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				18AD859122910E630063F38B /* MapViewController.swift */,
+				18AD85A32291116F0063F38B /* RestaurantPreviewView.swift */,
+				18AD85A5229112710063F38B /* DetailsVC.swift */,
+				18AD85A1229110E90063F38B /* CustomerMarkerView.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		1808AD8622945B9400B79267 /* MyCustomController */ = {
+			isa = PBXGroup;
+			children = (
+				1808AD812294533900B79267 /* MyTabBarController.swift */,
+				1808AD832294549800B79267 /* MyNavigationController.swift */,
+			);
+			path = MyCustomController;
+			sourceTree = "<group>";
+		};
+		1808AD872294B92E00B79267 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				1808AD882294B95E00B79267 /* WeatherViewController.swift */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
 		18AD858322910E630063F38B = {
 			isa = PBXGroup;
 			children = (
@@ -71,14 +121,13 @@
 		18AD858E22910E630063F38B /* Mother */ = {
 			isa = PBXGroup;
 			children = (
+				1808AD8622945B9400B79267 /* MyCustomController */,
+				1808AD80229452D400B79267 /* Common */,
+				1808AD7F2294529900B79267 /* Home */,
+				1808AD85229459CD00B79267 /* Map */,
 				18AD858F22910E630063F38B /* AppDelegate.swift */,
-				18AD859122910E630063F38B /* ViewController.swift */,
-				18AD85A1229110E90063F38B /* CustomerMarkerView.swift */,
-				18AD85A32291116F0063F38B /* RestaurantPreviewView.swift */,
-				18AD85A5229112710063F38B /* DetailsVC.swift */,
-				18BEC3A42292D5E20021CE68 /* String.swift */,
-				18BEC3A82292DBB50021CE68 /* ToastView.swift */,
 				18AD859622910E680063F38B /* Assets.xcassets */,
+				1808AD872294B92E00B79267 /* Weather */,
 				18AD859822910E680063F38B /* LaunchScreen.storyboard */,
 				18BEC3A1229140480021CE68 /* GoogleService-Info.plist */,
 				18AD859B22910E680063F38B /* Info.plist */,
@@ -233,6 +282,7 @@
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/IBAnimatable/IBAnimatable.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
@@ -246,6 +296,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IBAnimatable.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
@@ -265,9 +316,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				18BEC3A52292D5E20021CE68 /* String.swift in Sources */,
+				1808AD892294B95E00B79267 /* WeatherViewController.swift in Sources */,
+				1808AD822294533900B79267 /* MyTabBarController.swift in Sources */,
 				18BEC3A92292DBB50021CE68 /* ToastView.swift in Sources */,
+				1808AD842294549800B79267 /* MyNavigationController.swift in Sources */,
 				18AD85A42291116F0063F38B /* RestaurantPreviewView.swift in Sources */,
-				18AD859222910E630063F38B /* ViewController.swift in Sources */,
+				18AD859222910E630063F38B /* MapViewController.swift in Sources */,
 				18AD859022910E630063F38B /* AppDelegate.swift in Sources */,
 				18AD85A2229110E90063F38B /* CustomerMarkerView.swift in Sources */,
 				18AD85A6229112710063F38B /* DetailsVC.swift in Sources */,
