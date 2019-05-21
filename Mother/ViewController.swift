@@ -323,10 +323,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
         myMapView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 60).isActive=true
         
         self.view.addSubview(txtFieldSearch)
+        
+        if #available(iOS 11.0, *) {
         txtFieldSearch.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive=true
+        }
         txtFieldSearch.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive=true
         txtFieldSearch.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive=true
         txtFieldSearch.heightAnchor.constraint(equalToConstant: 35).isActive=true
+        
         setupTextField(textField: txtFieldSearch, img: #imageLiteral(resourceName: "gps-fixed-indicator-6"))
         
         restaurantPreviewView=RestaurantPreviewView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 190))
