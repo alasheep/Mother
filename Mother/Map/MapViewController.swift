@@ -33,6 +33,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     
     let previewDemoData = [(title: "The Polar Junction", img: #imageLiteral(resourceName: "restaurant1"), price: 10), (title: "The Nifty Lounge", img: #imageLiteral(resourceName: "restaurant2"), price: 8), (title: "The Lunar Petal", img: #imageLiteral(resourceName: "restaurant3"), price: 12), (title: "Yeojin", img: #imageLiteral(resourceName: "yeojin"), price: 12)]
     
+    private lazy var navigationBar = MapSearchNavigationView.loadViewFromNib()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "여진이 어딨어?"
@@ -322,17 +324,20 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         myMapView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive=true
         myMapView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 60).isActive=true
         
-        self.view.addSubview(txtFieldSearch)
         
-        if #available(iOS 11.0, *) {
-        txtFieldSearch.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive=true
-        }
-        txtFieldSearch.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive=true
-        txtFieldSearch.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive=true
-        txtFieldSearch.heightAnchor.constraint(equalToConstant: 35).isActive=true
+        navigationItem.titleView = navigationBar
         
-        setupTextField(textField: txtFieldSearch, img: #imageLiteral(resourceName: "gps-fixed-indicator-6"))
-        
+//        self.view.addSubview(txtFieldSearch)
+//        
+//        if #available(iOS 11.0, *) {
+//        txtFieldSearch.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive=true
+//        }
+//        txtFieldSearch.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive=true
+//        txtFieldSearch.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive=true
+//        txtFieldSearch.heightAnchor.constraint(equalToConstant: 35).isActive=true
+//
+//        setupTextField(textField: txtFieldSearch, img: #imageLiteral(resourceName: "gps-fixed-indicator-6"))
+//        
         restaurantPreviewView=RestaurantPreviewView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 190))
         
         // 현재 위치 버튼

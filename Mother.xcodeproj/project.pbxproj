@@ -11,6 +11,10 @@
 		1808AD822294533900B79267 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808AD812294533900B79267 /* MyTabBarController.swift */; };
 		1808AD842294549800B79267 /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808AD832294549800B79267 /* MyNavigationController.swift */; };
 		1808AD892294B95E00B79267 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808AD882294B95E00B79267 /* WeatherViewController.swift */; };
+		1808AD8B2296CFF500B79267 /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808AD8A2296CFF500B79267 /* UIKit+Extension.swift */; };
+		1808AD902296D16300B79267 /* MapSearchNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808AD8E2296D16300B79267 /* MapSearchNavigationView.swift */; };
+		1808AD912296D16300B79267 /* MapSearchNavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1808AD8F2296D16300B79267 /* MapSearchNavigationView.xib */; };
+		1808AD932296D46900B79267 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808AD922296D46800B79267 /* Const.swift */; };
 		18AD859022910E630063F38B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD858F22910E630063F38B /* AppDelegate.swift */; };
 		18AD859222910E630063F38B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD859122910E630063F38B /* MapViewController.swift */; };
 		18AD859722910E680063F38B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18AD859622910E680063F38B /* Assets.xcassets */; };
@@ -27,6 +31,10 @@
 		1808AD812294533900B79267 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
 		1808AD832294549800B79267 /* MyNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNavigationController.swift; sourceTree = "<group>"; };
 		1808AD882294B95E00B79267 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		1808AD8A2296CFF500B79267 /* UIKit+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
+		1808AD8E2296D16300B79267 /* MapSearchNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchNavigationView.swift; sourceTree = "<group>"; };
+		1808AD8F2296D16300B79267 /* MapSearchNavigationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapSearchNavigationView.xib; sourceTree = "<group>"; };
+		1808AD922296D46800B79267 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		18AD858C22910E630063F38B /* Mother.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mother.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18AD858F22910E630063F38B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18AD859122910E630063F38B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +76,8 @@
 			children = (
 				18BEC3A82292DBB50021CE68 /* ToastView.swift */,
 				18BEC3A42292D5E20021CE68 /* String.swift */,
+				1808AD8A2296CFF500B79267 /* UIKit+Extension.swift */,
+				1808AD922296D46800B79267 /* Const.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -79,6 +89,8 @@
 				18AD85A32291116F0063F38B /* RestaurantPreviewView.swift */,
 				18AD85A5229112710063F38B /* DetailsVC.swift */,
 				18AD85A1229110E90063F38B /* CustomerMarkerView.swift */,
+				1808AD8E2296D16300B79267 /* MapSearchNavigationView.swift */,
+				1808AD8F2296D16300B79267 /* MapSearchNavigationView.xib */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -125,9 +137,9 @@
 				1808AD80229452D400B79267 /* Common */,
 				1808AD7F2294529900B79267 /* Home */,
 				1808AD85229459CD00B79267 /* Map */,
+				1808AD872294B92E00B79267 /* Weather */,
 				18AD858F22910E630063F38B /* AppDelegate.swift */,
 				18AD859622910E680063F38B /* Assets.xcassets */,
-				1808AD872294B92E00B79267 /* Weather */,
 				18AD859822910E680063F38B /* LaunchScreen.storyboard */,
 				18BEC3A1229140480021CE68 /* GoogleService-Info.plist */,
 				18AD859B22910E680063F38B /* Info.plist */,
@@ -216,6 +228,7 @@
 				18BEC3A2229140490021CE68 /* GoogleService-Info.plist in Resources */,
 				18AD859A22910E680063F38B /* LaunchScreen.storyboard in Resources */,
 				18AD859722910E680063F38B /* Assets.xcassets in Resources */,
+				1808AD912296D16300B79267 /* MapSearchNavigationView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,13 +331,16 @@
 				18BEC3A52292D5E20021CE68 /* String.swift in Sources */,
 				1808AD892294B95E00B79267 /* WeatherViewController.swift in Sources */,
 				1808AD822294533900B79267 /* MyTabBarController.swift in Sources */,
+				1808AD902296D16300B79267 /* MapSearchNavigationView.swift in Sources */,
 				18BEC3A92292DBB50021CE68 /* ToastView.swift in Sources */,
 				1808AD842294549800B79267 /* MyNavigationController.swift in Sources */,
 				18AD85A42291116F0063F38B /* RestaurantPreviewView.swift in Sources */,
 				18AD859222910E630063F38B /* MapViewController.swift in Sources */,
+				1808AD8B2296CFF500B79267 /* UIKit+Extension.swift in Sources */,
 				18AD859022910E630063F38B /* AppDelegate.swift in Sources */,
 				18AD85A2229110E90063F38B /* CustomerMarkerView.swift in Sources */,
 				18AD85A6229112710063F38B /* DetailsVC.swift in Sources */,
+				1808AD932296D46900B79267 /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,7 +482,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 988BLGG99F;
 				INFOPLIST_FILE = Mother/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -486,7 +502,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 988BLGG99F;
 				INFOPLIST_FILE = Mother/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
