@@ -283,14 +283,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                 
                 print("la :\(la), lo:\(lo)");
                 
-                self.latitude = la.toDouble()!
-                self.longtitude = lo.toDouble()!
+                if let la_value:Double = la.toDouble(), let lo_value:Double = lo.toDouble() {
+                    self.latitude = la_value
+                    self.longtitude = lo_value
+                    
+                    //                self.showYeojinMarkers(lat:self.latitude, long:self.longtitude)
+                    
+                    let camera = GMSCameraPosition.camera(withLatitude: self.latitude, longitude: self.longtitude, zoom: 17.0)
+                    self.myMapView.animate(to: camera)
+                    self.showYeojinMarkers(lat:self.latitude, long:self.longtitude)
+                }
                 
-//                self.showYeojinMarkers(lat:self.latitude, long:self.longtitude)
                 
-                let camera = GMSCameraPosition.camera(withLatitude: self.latitude, longitude: self.longtitude, zoom: 17.0)
-                self.myMapView.animate(to: camera)
-                self.showYeojinMarkers(lat:self.latitude, long:self.longtitude)
 
             } else {
                 print("Couldn't find the document")
@@ -328,7 +332,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         navigationItem.titleView = navigationBar
         
 //        self.view.addSubview(txtFieldSearch)
-//        
+//
 //        if #available(iOS 11.0, *) {
 //        txtFieldSearch.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive=true
 //        }
@@ -337,7 +341,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
 //        txtFieldSearch.heightAnchor.constraint(equalToConstant: 35).isActive=true
 //
 //        setupTextField(textField: txtFieldSearch, img: #imageLiteral(resourceName: "gps-fixed-indicator-6"))
-//        
+//
         restaurantPreviewView=RestaurantPreviewView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 190))
         
         // 현재 위치 버튼
